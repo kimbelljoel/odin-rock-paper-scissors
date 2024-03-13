@@ -14,11 +14,6 @@ let w = 0;
                 }
             }
 
-            function getPlayerChoice() {
-                const playerOptions = prompt("Rock, Paper, or Scissors?");
-                return playerOptions.charAt(0).toUpperCase() + playerOptions.slice(1).toLowerCase()
-            }
-
             function playRound(playerChoice, computerChoice) {
                 if (playerChoice == 'Rock' && computerChoice == 'Rock' || playerChoice == 'Paper' && computerChoice == 'Paper' || playerChoice == 'Scissors' && computerChoice == 'Scissors')  {
                     ++t;
@@ -32,19 +27,12 @@ let w = 0;
                 }
             }
 
-            // temp removed logic that plays exactly 5 rounds
-            function playGame() {
-                // try {
-                   // for (let i = 0; i < 5; i++) {
-                        const playerChoice = getPlayerChoice();
-                        const computerChoice = getComputerChoice();
-                        console.log(playRound(playerChoice, computerChoice))
-                        }
-                    // }
-                // finally {
-                    // console.log(w + '-' + l + '-' + t)
-                //}
-            //}
-            
-            
-            playGame();
+            const buttons = document.querySelectorAll("button");
+
+            buttons.forEach((button) => {
+                button.addEventListener("click", () => {
+                    const playerChoice = button.id;
+                    const computerChoice = getComputerChoice();
+                    console.log(playRound(playerChoice, computerChoice))
+                });
+            });
