@@ -1,0 +1,29 @@
+#score-container {
+  padding: 50px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-around;
+}
+
+#player-name,
+#computer-name {
+  text-align: center;
+}
+
+#player-score {
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#computer-score {
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

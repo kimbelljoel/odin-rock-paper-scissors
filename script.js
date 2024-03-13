@@ -1,4 +1,4 @@
-let w = 0;
+            let w = 0;
             let l = 0;
             let t = 0;
 
@@ -17,13 +17,13 @@ let w = 0;
             function playRound(playerChoice, computerChoice) {
                 if (playerChoice == 'Rock' && computerChoice == 'Rock' || playerChoice == 'Paper' && computerChoice == 'Paper' || playerChoice == 'Scissors' && computerChoice == 'Scissors')  {
                     ++t;
-                    return 'You Tied! ' + playerChoice + ' ties ' + computerChoice;
+                    return 'You Tied! ' + playerChoice + ' ties ' + computerChoice + '.';
                 } else if (playerChoice == 'Rock' && computerChoice == 'Scissors' || playerChoice == 'Paper' && computerChoice == 'Rock' || playerChoice == 'Scissors' && computerChoice == 'Paper') {
                     ++w
-                    return 'You Win! ' + playerChoice + ' beats ' + computerChoice;
+                    return 'You Win! ' + playerChoice + ' beats ' + computerChoice + '.';
                 } else if (playerChoice == 'Rock' && computerChoice == 'Paper' || playerChoice == 'Paper' && computerChoice == 'Scissors' || playerChoice == 'Scissors' && computerChoice == 'Rock') {
                     ++l
-                    return 'You Lose! ' + computerChoice + ' beats ' + playerChoice;
+                    return 'You Lose! ' + computerChoice + ' beats ' + playerChoice + '.';
                 }
             }
 
@@ -33,6 +33,21 @@ let w = 0;
                 button.addEventListener("click", () => {
                     const playerChoice = button.id;
                     const computerChoice = getComputerChoice();
-                    console.log(playRound(playerChoice, computerChoice))
+                    const returnedString = playRound(playerChoice, computerChoice);
+                    let resultText = document.createTextNode(returnedString);
+                    let resultElement = document.getElementById("result");
+                    resultElement.innerHTML = '';
+
+                    document.getElementById("player-score").innerHTML = "<div class='score'>" + w + "</div>";
+                    document.getElementById("computer-score").innerHTML = "<div class='score'>" + l + "</div>";
+                    
+
+                    if (w == 5) {
+                        resultText = document.createTextNode("You Won!");
+                    } else if (l == 5) {
+                        resultText = document.createTextNode("You Lost!");
+                    }
+
+                    resultElement.appendChild(resultText);
                 });
             });
