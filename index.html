@@ -20,7 +20,7 @@
                 } else if (random == 1) {
                     return 'Paper';
                 } else if (random == 2) {
-                    return 'Scissors';
+                    return 'Scissors'; 
                 }
             }
 
@@ -42,18 +42,20 @@
                 }
             }
 
+            // temp removed logic that plays exactly 5 rounds
             function playGame() {
-                try {
-                    for (let i = 0; i < 5; i++) {
+                // try {
+                   // for (let i = 0; i < 5; i++) {
                         const playerChoice = getPlayerChoice();
                         const computerChoice = getComputerChoice();
                         console.log(playRound(playerChoice, computerChoice))
                         }
-                    }
-                finally {
-                    console.log(w + '-' + l + '-' + t)
-                }
-            }
+                    // }
+                // finally {
+                    // console.log(w + '-' + l + '-' + t)
+                //}
+            //}
+            
             
             playGame();
 
